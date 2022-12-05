@@ -25,5 +25,6 @@ transformers[all]
 uvicorn[all]
 uvloop[all]
 virtualenv[all]
-keras.saving.hdf5_format[all]
+keras[all]
+
 
