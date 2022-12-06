@@ -1,8 +1,6 @@
 absl-py[all]
 aiofiles[all]
 alembic[all]
-aniso[all]
-anyio[all]
 apispec[all]
 appdirs[all]
 argcomplete[all]
