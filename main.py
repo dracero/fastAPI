@@ -5,6 +5,7 @@ from fastapi import FastAPI
 import uvicorn
 from fastapi.middleware.cors import CORSMiddleware
 from tensorflow.python.keras.saving.hdf5_format import save_attributes_to_hdf5_group
+import os
 
 app = FastAPI()
 origins = ["*"]
@@ -44,6 +45,6 @@ async def geeter(name,classtype):
     return { "name":salida,
              "class": classtype}
 
-
+DEFAULT_PORT = 8080
 if __name__ == "__main__":
-   uvicorn.run(app, host="0.0.0.0", port=process.env.PORT)
+   uvicorn.run(app, host="0.0.0.0", port=int(os.getenv('PORT',DEFAULT_PORT)))
