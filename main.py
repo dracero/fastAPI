@@ -44,7 +44,6 @@ async def geeter(name,classtype):
       )
     return { "name":salida,
              "class": classtype}
-
-DEFAULT_PORT = 8080
+           
 if __name__ == "__main__":
-   uvicorn.run(app, host="0.0.0.0", port=int(os.getenv('PORT',DEFAULT_PORT)))
+   uvicorn.run(app, host="0.0.0.0", port=int(os.environ['PORT']))
