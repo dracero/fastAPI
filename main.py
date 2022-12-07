@@ -43,8 +43,8 @@ async def geeter(name,classtype):
         'context': context
        }
       )
-    return { "name":salida,
-             "class": classtype}
+    fuente = str({ "name":salida,"class": classtype})
+    return fuente
 
 
 @app.get('/prueba')
