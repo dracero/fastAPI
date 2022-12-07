@@ -2,10 +2,9 @@
 from typing import Union
 from transformers import pipeline
 from fastapi import FastAPI
-import uvicorn
 from fastapi.middleware.cors import CORSMiddleware
 from tensorflow.python.keras.saving.hdf5_format import save_attributes_to_hdf5_group
-import os
+from pydantic import BaseModel
 
 app = FastAPI()
 origins = ["*"]
@@ -21,6 +20,8 @@ app.add_middleware(
 
 #Esta función debe aceptar dos valores, uno es la clase y otro la pregunta. Primero usando Pymongo busca el context a partir de la clase y luego 
 #busca la pregunta en el context.
+
+
 @app.get('/pregunta/{name}/class/{classtype}')
 
 async def geeter(name,classtype):
@@ -44,6 +45,12 @@ async def geeter(name,classtype):
       )
     return { "name":salida,
              "class": classtype}
-           
-if __name__ == "__main__":
-   uvicorn.run(app, host="0.0.0.0", port=int(os.environ['PORT']))
+
+
+@app.get('/prueba')
+async def tester():
+    return "Hola"
+
+
+#if __name__ == "__main__":
+#   uvicorn.run(app, host="0.0.0.0", port=int(os.environ['PORT']))
