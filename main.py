@@ -23,7 +23,6 @@ app.add_middleware(
 
 
 @app.get('/pregunta/{name}/class/{classtype}')
-
 async def geeter(name,classtype):
     salida =nlp = pipeline(
     'question-answering', 
@@ -43,13 +42,8 @@ async def geeter(name,classtype):
         'context': context
        }
       )
-    fuente = str({ "name":salida,"class": classtype})
-    return fuente
-
-
-@app.get('/prueba')
-async def tester():
-    return "Hola"
+    
+    return { "name":salida,"class": classtype}
 
 
 #if __name__ == "__main__":
