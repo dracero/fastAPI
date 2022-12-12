@@ -3,8 +3,6 @@ from typing import Union
 from transformers import pipeline
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from tensorflow.python.keras.saving.hdf5_format import save_attributes_to_hdf5_group
-from pydantic import BaseModel
 
 app = FastAPI()
 origins = ["*"]
@@ -46,5 +44,5 @@ async def geeter(name,classtype):
     return { "name":salida,"class": classtype}
 
 
-#if __name__ == "__main__":
-#   uvicorn.run(app, host="0.0.0.0", port=int(os.environ['PORT']))
+if __name__ == "__main__":
+    uvicorn.run(app, host="0.0.0.0", port=int(os.environ['PORT']))
